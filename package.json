@@ -1,0 +1,36 @@
+{
+    "name": "Easy swap",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@rainbow-me/rainbowkit": "^1.0.5",
+        "@walletconnect/web3-provider": "^1.8.0",
+        "@web3modal/ethereum": "^2.6.2",
+        "@web3modal/react": "^2.6.2",
+        "axios": "^1.2.1",
+        "ethers": "^6.6.2",
+        "next": "^12.3.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.10.1",
+        "sass": "^1.63.6",
+        "viem": "^1.2.10",
+        "wagmi": "^1.3.8",
+        "web3": "^1.10.0",
+        "web3modal": "^1.9.12"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.14",
+        "postcss": "^8.4.26",
+        "tailwindcss": "^3.3.3"
+    }
+}

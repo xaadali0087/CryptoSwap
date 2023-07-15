@@ -1,0 +1,112 @@
+[{
+    "name": "Polygon",
+    "symbol": "MATIC",
+    "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "decimals": 18
+}, {
+    "name": "Wrapped Matic",
+    "symbol": "WMATIC",
+    "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "decimals": 18
+}, {
+    "name": "Wrapped Ether",
+    "symbol": "WETH",
+    "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+    "decimals": 18
+}, {
+    "name": "USD Coin (PoS)",
+    "symbol": "USDC",
+    "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "decimals": 6
+}, {
+    "name": "(PoS) Dai Stablecoin",
+    "symbol": "DAI",
+    "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    "decimals": 18
+}, {
+    "name": "(PoS) Tether USD",
+    "symbol": "USDT",
+    "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "decimals": 6
+},
+{
+    "name": "Atlantis",
+    "symbol": "ATLX",
+    "address": "0x912ce59144191c1204e64559fe8253a0e49e6548",
+    "decimals": 18
+},
+
+{
+    "name": "Prosper",
+    "symbol": "PROS",
+    "address": "0x6109cb051c5c64093830121ed76272ab04bbdd7c",
+    "decimals": 18
+},
+
+{
+    "name": "Quickswap",
+    "symbol": "QUICK",
+    "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+    "decimals": 18
+},
+
+{
+    "name": "BOB",
+    "symbol": "BOB",
+    "address": "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
+    "decimals": 18
+},
+{
+    "name": "LAND",
+    "symbol": "LAND",
+    "address": "0x3139f9ad73317fe23036c63b15b00806c6bebfcd",
+    "decimals": 18
+},
+
+{
+    "name": "Polinate (PoS)",
+    "symbol": "POLI",
+    "address": "0x6fb54ffe60386ac33b722be13d2549dd87bf63af",
+    "decimals": 18
+},
+
+
+
+
+
+
+{
+    "name": "Pearl",
+    "symbol": "PEARL",
+    "address": "0x7238390d5f6f64e67c3211c343a410e2a3dec142",
+    "decimals": 18
+},
+
+
+{
+    "name": "Nakamoto.Games",
+    "symbol": "NAKA",
+    "address": "0x311434160d7537be358930def317afb606c0d737",
+    "decimals": 18
+},
+
+{
+    "name": "Yellow Duckies",
+    "symbol": "DUCKIES",
+    "address": "0x18e73a5333984549484348a94f4d219f4fab7b81",
+    "decimals": 18
+},
+
+{
+    "name": "World$tateCoin",
+    "symbol": "W$C",
+    "address": "0x77a6f2e9a9e44fd5d5c3f9be9e52831fc1c3c0a0",
+    "decimals": 18
+},
+
+{
+    "name": "(PoS) Wrapped BTC",
+    "symbol": "WBTC",
+    "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+    "decimals": 8
+}]

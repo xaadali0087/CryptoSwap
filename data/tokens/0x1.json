@@ -1,0 +1,208 @@
+[
+    {
+    "name": "Ethereum",
+    "symbol": "ETH",
+    "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "decimals": 18
+}, 
+{
+    "name": "Cryptocoin",
+    "symbol": "CryptoCoin",
+    "address": "0xb8f5ede5892b093011a36bd3acaebdeeccfef86c",
+    "decimals": 18
+},
+{
+    "name": "MONG",
+    "symbol": "MONGCOIN",
+    "address": "0x1ce270557c1f68cfb577b856766310bf8b47fd9c",
+    "decimals": 18
+},
+{
+    "name": "TOTEMHEADS",
+    "symbol": "TOTEM",
+    "address": "0xdf5d1a5c764a024c47ecb14b08a3a355d5723685",
+    "decimals": 18
+},
+
+{
+    "name": "Cash Mongy",
+    "symbol": "CMON",
+    "address": "0x9a9558107cbf4204d8b09121502f3f53968aa6c8",
+    "decimals": 18
+},
+{
+    "name": "Ming Mong",
+    "symbol": "MING",
+    "address": "0xd67508233a9f6432748b895655f7df90ccd17976",
+    "decimals": 18
+},
+{
+    "name": "Mong Burn",
+    "symbol": "MONGB",
+    "address": "0xeb514fc800e051a6ba1caa0df789624ee35d908f",
+    "decimals": 18
+},
+{
+    "name": "Congress coin",
+    "symbol": "CONG",
+    "address": "0xc0bb399cee28b6901dd2da3f2f59daf52c8e07f6",
+    "decimals": 18
+},
+
+{
+    "name": "Wrapped Ether",
+    "symbol": "WETH",
+    "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "decimals": 18
+},
+
+{
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "decimals": 6
+},
+
+
+
+
+
+{
+    "name": "MechX",
+    "symbol": "Mechx",
+    "address": "0x816fce1cc93473b2d54bd8c0dae4cae911f6dd41",
+    "decimals": 18
+},
+
+{
+    "name": "Nuggets",
+    "symbol": "NUG",
+    "address": "0x245ef47d4d0505ecf3ac463f4d81f41ade8f1fd1",
+    "decimals": 18
+}, 
+
+
+
+{
+    "name": "MixToEarn",
+    "symbol": "MTE",
+    "address": "0x159cdaf78be31e730d9e1330adfcfbb79a5fdb95",
+    "decimals": 18
+},
+
+{
+    "name": "DogPad",
+    "symbol": "DOGPAD",
+    "address": "0x6f3277ad0782a7da3eb676b85a8346a100bf9c1c",
+    "decimals": 18
+},
+
+{
+    "name": "jim",
+    "symbol": "jim",
+    "address": "0xd807f7e2818db8eda0d28b5be74866338eaedb86",
+    "decimals": 18
+},
+{
+    "name": "Manifold Finance",
+    "symbol": "FOLD",
+    "address": "0xd084944d3c05cd115c09d072b9f44ba3e0e45921",
+    "decimals": 18
+},
+
+{
+    "name": "EverMoon",
+    "symbol": "EVERMOON",
+    "address": "0x4ad434b8cdc3aa5ac97932d6bd18b5d313ab0f6f",
+    "decimals": 18
+},
+
+{
+    "name": "Shita-Kiri Suzume",
+    "symbol": "SUZUME",
+    "address": "0x0b452278223d3954f4ac050949d7998e373e7e43",
+    "decimals": 18
+},
+{
+    "name": "4CHAN",
+    "symbol": "4CHAN",
+    "address": "0xe0a458bf4acf353cb45e211281a334bb1d837885",
+    "decimals": 18
+},
+{
+    "name": "ZOOMER",
+    "symbol": "ZOOMER",
+    "address": "0x0d505c03d30e65f6e9b4ef88855a47a89e4b7676",
+    "decimals": 18
+},
+{
+    "name": "BOBO",
+    "symbol": "BOBO",
+    "address": "0xb90b2a35c65dbc466b04240097ca756ad2005295",
+    "decimals": 18
+},
+{
+    "name": "PEEPA",
+    "symbol": "PEEPA",
+    "address": "0x88417754ff7062c10f4e3a4ab7e9f9d9cbda6023",
+    "decimals": 18
+},
+{
+    "name": "Dai Stablecoin",
+    "symbol": "DAI",
+    "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    "decimals": 18
+}, {
+    "name": "Tether USD",
+    "symbol": "USDT",
+    "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "decimals": 6
+},
+{
+    "name": "PEPE",
+    "symbol": "Pepe",
+    "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+    "decimals": 18
+},
+{
+    "name": "FLOKI",
+    "symbol": "Floki",
+    "address": "0xcf0c122c6b73ff809c693db761e7baebe62b6a2e",
+    "decimals": 9
+},
+{
+    "name": "Shiba Inu",
+    "symbol": "SHIB",
+    "address": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+    "decimals": 18
+},
+{
+    "name": "BOB",
+    "symbol": "BOB",
+    "address": "0x7d8146cf21e8d7cbe46054e01588207b51198729",
+    "decimals": 18
+},
+{
+    "name": "JASMY",
+    "symbol": "JASMY",
+    "address": "0x7420b4b9a0110cdc71fb720908340c03f9bc03ec",
+    "decimals": 18
+},
+{
+    "name": "PEPE2.0",
+    "symbol": "PEPE2.0",
+    "address": "0xfb66321d7c674995dfcc2cb67a30bc978dc862ad",
+    "decimals": 18
+},
+{
+    "name": "DOGE2.0",
+    "symbol": "DOGE2.0",
+    "address": "0xf2ec4a773ef90c58d98ea734c0ebdb538519b988",
+    "decimals": 18
+},
+{
+    "name": "Wrapped BTC",
+    "symbol": "WBTC",
+    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "decimals": 8
+}]

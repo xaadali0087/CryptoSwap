@@ -1,0 +1,44 @@
+{
+  "..\\node_modules\\@wagmi\\connectors\\dist\\walletConnect.js -> @walletconnect/ethereum-provider": {
+    "id": 882,
+    "files": [
+      "static/chunks/882.06368c8d63701da2.js"
+    ]
+  },
+  "..\\node_modules\\@walletconnect\\ethereum-provider\\dist\\index.es.js -> @walletconnect/modal": {
+    "id": 9343,
+    "files": [
+      "static/chunks/343.ad28bb1999ca49e1.js"
+    ]
+  },
+  "..\\node_modules\\@walletconnect\\modal\\dist\\index.js -> @walletconnect/modal-ui": {
+    "id": 7654,
+    "files": [
+      "static/chunks/974.99b4e60d6f68e044.js",
+      "static/chunks/654.a9ae91015d030446.js"
+    ]
+  },
+  "..\\node_modules\\@web3modal\\react\\dist\\index.js -> @web3modal/ui": {
+    "id": 8416,
+    "files": [
+      "static/chunks/974.99b4e60d6f68e044.js",
+      "static/chunks/416.64b079fc15eabd53.js"
+    ]
+  },
+  "..\\node_modules\\viem\\dist\\esm\\actions\\public\\call.js -> ../../utils/ccip.js": {
+    "id": 3646,
+    "files": [
+      "static/chunks/646.123379a5598ebfac.js"
+    ]
+  },
+  "..\\node_modules\\viem\\dist\\esm\\utils\\rpc.js -> isomorphic-ws": {
+    "id": 5289,
+    "files": [
+      "static/chunks/289.38998dc048ab3a77.js"
+    ]
+  },
+  "..\\node_modules\\viem\\dist\\esm\\utils\\signature\\recoverPublicKey.js -> @noble/curves/secp256k1": {
+    "id": null,
+    "files": []
+  }
+}

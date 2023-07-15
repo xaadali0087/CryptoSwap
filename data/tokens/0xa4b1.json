@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Arbitrium",
+        "symbol": "ARB",
+        "address": "0x912ce59144191c1204e64559fe8253a0e49e6548",
+        "decimals": 18
+},
+{
+        "name": "AiDOGE",
+        "symbol": "AiDOGE",
+        "address": "0x09e18590e8f76b6cf471b3cd75fe1a1a9d2b2c2b",
+        "decimals": 18
+    },
+{
+        "name": "AiCODE",
+        "symbol": "AiCODE",
+        "address": "0x7c8a1a80fdd00c9cccd6ebd573e9ecb49bfa2a59",
+        "decimals": 18
+    },
+    {
+    "name": "Ethereum",
+    "symbol": "ETH",
+    "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "decimals": 18
+}, {
+    "name": "Wrapped Ether",
+    "symbol": "WETH",
+    "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "decimals": 18
+}, {
+    "name": "USD Coin (Arb1)",
+    "symbol": "USDC",
+    "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+    "decimals": 6
+}, {
+    "name": "Dai Stablecoin",
+    "symbol": "DAI",
+    "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+    "decimals": 18
+}, {
+    "name": "Tether USD",
+    "symbol": "USDT",
+    "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+    "decimals": 6
+}, {
+    "name": "Wrapped BTC",
+    "symbol": "WBTC",
+    "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+    "decimals": 8
+}]
