@@ -1,5 +1,5 @@
 .wrapper {
-  @apply w-screen min-h-[150vh] fixed overflow-auto flex flex-col items-center bg-[#FFFCF7] top-0 p-10  right-0;
+  @apply w-screen min-h-[150vh] fixed overflow-auto flex flex-col items-center  top-0 p-10  right-0;
   .closeRow {
     @apply w-full flex justify-end;
     .closeIcon {
