@@ -24,7 +24,7 @@ const MobileMenu = (props) => {
 
   const NavLink = ({ name, href }) => (
     <>
-      <Link href={href}>
+      <Link href={href} onClick={() => mobileMenuHandler()}>
         <a className="link">{name}</a>
       </Link>
       <style jsx>{`
@@ -33,9 +33,7 @@ const MobileMenu = (props) => {
                 color: var(--black);
                 margin-left: 48px;
                 display:block !important;
-                @media screen and (max-width:786px){
-                  display:none !important;
-                }
+             
             }
 
             .link:hover {
