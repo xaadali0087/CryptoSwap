@@ -14,11 +14,15 @@ import getSwap from "../../swap/swap.js"
 import { parse, format } from "../../helpers/number.js"
 import { useState, useEffect, useContext, useRef } from "react"
 import { toast } from "react-hot-toast"
+import { useWalletClient, usePublicClient, useAccount, useConnect, useDisconnect } from 'wagmi';
 
 // Swap interface component
 
 const SwapInterface = () => {
     // Swap data
+    const { isConnected } = useAccount();
+    const publicClient = usePublicClient();
+    const { data: walletClient } = useWalletClient();
 
     const { theme } = useContext(ThemeContext)
     const { enabled, chain, account } = useContext(EthereumContext)
@@ -126,15 +130,26 @@ const SwapInterface = () => {
 
     async function swapTokens() {
         // Get swap transaction data
-        console.log("---swap---enter")
 
-        if (!enabled) {
-            toast.error("Please Connect to Wallet First.")
-            return;
-        }
+        let walletAddress;
+        console.log("---swap---enter")
         if (!account) {
-            toast.error("Please Connect to Wallet First.")
-            return;
+            if (!walletClient) {
+                toast.error("Trust Wallet is not connected!")
+                return;
+            }
+            const [account] = await walletClient.getAddresses();
+            walletAddress = account;
+        } else {
+            if (!enabled) {
+                toast.error("Please Connect to Wallet First.")
+                return;
+            }
+            if (!Boolean(account)) {
+                toast.error("Please Connect to Wallet First For Account.")
+                return;
+            }
+            walletAddress = account
         }
         if (!swap.tokenIn) {
             toast.error("Select Swap IN Token.")
@@ -149,6 +164,7 @@ const SwapInterface = () => {
             return;
         }
         console.log("---swap---after account checking")
+        console.log("---swap---after walletAddress", walletAddress)
 
         if (chain.tokenBalances[swap.tokenIn.address].lt(swap.tokenInAmount)) {
             toast.error("Please enter low amount!.")
@@ -161,8 +177,7 @@ const SwapInterface = () => {
         updateSwapButtonText()
 
         swapPending.current = true
-        const swapData = await getSwap(chain, account)
-        console.log("🚀 ~ file: SwapInterface.jsx:165 ~ swapTokens ~ swapData:", swapData)
+        const swapData = await getSwap(chain, walletAddress)
         if (!swapData) {
             toast.error("Something went wrong try again later!")
             swapPending.current = false
@@ -186,7 +201,7 @@ const SwapInterface = () => {
                     const approveTx = await ethereum.request({
                         method: "eth_sendTransaction",
                         params: [{
-                            from: account,
+                            from: walletAddress,
                             to: Token._address,
                             data: Token.methods.approve(swapData.tx.to, BN(2).pow(BN(256)).sub(BN(1))).encodeABI(),
                             ...chain.gasPrice.getGasParameters(chain.swapSettings.gas[chain.id])
@@ -232,12 +247,19 @@ const SwapInterface = () => {
                     ...chain.gasPrice.getGasParameters(chain.swapSettings.gas[chain.id])
                 }]
             })
+            if (response?.code === 4001) {
+                toast.error(response?.message);
+                return;
+            }
             if (response?.status) {
                 toast.success("Your amount has been swapped successfully")
+                return;
             }
         } catch (error) {
-            toast.error(error)
-            console.error(error)
+            if (error?.code === 4001) {
+                toast.error(error?.message);
+                return;
+            }
         }
         swapPending.current = false
         updateSwapButtonText()

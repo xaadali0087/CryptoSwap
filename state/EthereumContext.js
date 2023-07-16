@@ -8,6 +8,7 @@ import useSwapSettings from "./useSwapSettings.js"
 import useGasPrice from "./useGasPrice.js"
 import { createContext, useState, useEffect } from "react"
 import Web3 from "web3"
+import { useAccount, useContract, useWalletClient } from 'wagmi'
 
 // Load Ethereum data
 
@@ -26,14 +27,16 @@ const EthereumContext = createContext({})
 
 // Ethereum context provider
 
+
 const EthereumContextProvider = ({ children }) => {
     // Default Ethereum application state
+
 
     const swapSettings = useSwapSettings()
     for (const id in chains) {
         // Initialize token list
 
-        const [ tokens, setTokens ] = useTokens(id)
+        const [tokens, setTokens] = useTokens(id)
         chains[id].tokens = tokens
         chains[id].setTokens = setTokens
 
@@ -43,7 +46,7 @@ const EthereumContextProvider = ({ children }) => {
         for (const token of chains[id].tokens) {
             balances[token.address] = BN(0)
         }
-        const [ tokenBalances, setTokenBalances ] = useState(balances)
+        const [tokenBalances, setTokenBalances] = useState(balances)
         chains[id].tokenBalances = tokenBalances
         chains[id].setTokenBalances = setTokenBalances
 
@@ -53,9 +56,9 @@ const EthereumContextProvider = ({ children }) => {
         chains[id].swapSettings = swapSettings
     }
 
-    const [ enabled, setEnabled ] = useState(false) // non-responsive
-    const [ chain, setChain ] = useState(chains["0x1"])
-    const [ account, setAccount ] = useState(null)
+    const [enabled, setEnabled] = useState(false) // non-responsive
+    const [chain, setChain] = useState(chains["0x1"])
+    const [account, setAccount] = useState(null)
     for (const id in chains) {
         chains[id].gasPrice = useGasPrice(id, chain)
     }
@@ -63,8 +66,10 @@ const EthereumContextProvider = ({ children }) => {
     // Update active account
 
     async function updateAccount() {
+
         if (typeof ethereum === "undefined") return
         const account = (await ethereum.request({ method: "eth_accounts" }))[0]
+        console.log("🚀 ~ file: EthereumContext.js:68 ~ updateAccount ~ account:", account)
         setAccount(web3.utils.toChecksumAddress(account))
     }
 
@@ -176,7 +181,7 @@ const EthereumContextProvider = ({ children }) => {
     useEffect(() => {
         // Reset token balances
 
-        const balances = {...chain.tokenBalances}
+        const balances = { ...chain.tokenBalances }
         for (const token of chain.tokens) {
             if (!balances[token.address]) {
                 balances[token.address] = BN(0)

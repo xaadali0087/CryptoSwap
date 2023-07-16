@@ -22,7 +22,7 @@ const projectId = '9f1004e719cc812fc74d8c310d3fe8a2'
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
 const wagmiConfig = createConfig({
     autoConnect: true,
-    connectors: w3mConnectors({ projectId, chains }),
+    connectors: w3mConnectors({ projectId, version: 2, chains }),
     publicClient
 })
 const ethereumClient = new EthereumClient(wagmiConfig, chains)
@@ -79,11 +79,11 @@ const App = ({ Component, pageProps }) => {
                                 <Component {...pageProps}></Component>
                             </Layout>
                         </WagmiConfig>
+                        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
                     </PriceContextProvider>
                 </EthereumContextProvider>
             </WindowSizeContextProvider>
 
-            <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
             <style jsx global>{`
                 :root {
                     --background: ${theme === "light" ? "#FFFFFF" : "#16191E"};
