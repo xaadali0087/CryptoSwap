@@ -13,6 +13,7 @@ import quoteSwap from "../../swap/quote.js"
 import getSwap from "../../swap/swap.js"
 import { parse, format } from "../../helpers/number.js"
 import { useState, useEffect, useContext, useRef } from "react"
+import { toast } from "react-hot-toast"
 
 // Swap interface component
 
@@ -22,7 +23,7 @@ const SwapInterface = () => {
     const { theme } = useContext(ThemeContext)
     const { enabled, chain, account } = useContext(EthereumContext)
     const swap = chain.swap
-    const [ swapButtonText, setSwapButtonText ] = useState("Swap Tokens")
+    const [swapButtonText, setSwapButtonText] = useState("Swap Tokens")
     const getApproved = useApproval(chain, account, swap.tokenIn)
 
     const tokenIn = useRef(swap.tokenIn ? swap.tokenIn.address : null)
@@ -49,12 +50,12 @@ const SwapInterface = () => {
 
     function switchTokens() {
         const newInput = swap.tokenOut
-        swap.setTokenOut(swap.tokenIn ? {...swap.tokenIn} : null)
+        swap.setTokenOut(swap.tokenIn ? { ...swap.tokenIn } : null)
         if (newInput) {
             if (swap.tokenInAmount) {
                 swap.setTokenInAmount(swap.tokenInAmount.mul(BN(10).pow(BN(newInput.decimals))).div(BN(10).pow(BN(swap.tokenIn.decimals))))
             }
-            swap.setTokenIn({...newInput})
+            swap.setTokenIn({ ...newInput })
         } else {
             swap.setTokenInAmount(null)
             swap.setTokenIn(null)
@@ -116,7 +117,7 @@ const SwapInterface = () => {
                 swap.setTokenOutAmount(updates.tokenOutAmount)
                 swap.setRouters(updates.routers)
             }
-        } catch(error) {
+        } catch (error) {
             console.error(error)
         }
     }
@@ -125,9 +126,34 @@ const SwapInterface = () => {
 
     async function swapTokens() {
         // Get swap transaction data
+        console.log("---swap---enter")
 
-        if (!enabled || !account || !swap.tokenIn || !swap.tokenOut || !swap.tokenInAmount) return
-        if (chain.tokenBalances[swap.tokenIn.address].lt(swap.tokenInAmount)) return
+        if (!enabled) {
+            toast.error("Please Connect to Wallet First.")
+            return;
+        }
+        if (!account) {
+            toast.error("Please Connect to Wallet First.")
+            return;
+        }
+        if (!swap.tokenIn) {
+            toast.error("Select Swap IN Token.")
+            return;
+        }
+        if (!swap.tokenOut) {
+            toast.error("Select Swap Out Token!.")
+            return;
+        }
+        if (!swap.tokenInAmount) {
+            toast.error("Select Swap In Amount!.")
+            return;
+        }
+        console.log("---swap---after account checking")
+
+        if (chain.tokenBalances[swap.tokenIn.address].lt(swap.tokenInAmount)) {
+            toast.error("Please enter low amount!.")
+            return
+        }
 
         swap.setTokenOutAmount("...")
         swap.setRouters(routerList)
@@ -136,17 +162,19 @@ const SwapInterface = () => {
 
         swapPending.current = true
         const swapData = await getSwap(chain, account)
+        console.log("🚀 ~ file: SwapInterface.jsx:165 ~ swapTokens ~ swapData:", swapData)
         if (!swapData) {
+            toast.error("Something went wrong try again later!")
             swapPending.current = false
             return
         }
 
         // Check approval
 
-        if (
-            swap.tokenIn.address !== "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE" &&
+        if (swap.tokenIn.address !== "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE" &&
             (swap.tokenIn.address !== chain.WETH || swap.tokenOut.address !== "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE")
         ) {
+            console.log("---swap---check approval")
             const Token = new chain.web3.eth.Contract(ERC20ABI, swap.tokenIn.address)
             const approved = await getApproved(swapData.tx.to)
             if (approved.lt(swap.tokenInAmount)) {
@@ -180,11 +208,12 @@ const SwapInterface = () => {
                                 clearInterval(approveInterval.current)
                                 updateSwapButtonText()
                             }
-                        } catch(error) {
+                        } catch (error) {
                             console.error(error)
                         }
                     }, 500)
-                } catch(error) {
+                } catch (error) {
+                    toast.error(error)
                     console.error(error)
                     updateSwapButtonText()
                 }
@@ -193,9 +222,9 @@ const SwapInterface = () => {
         }
 
         // Send swap transaction
-
+        console.log("---swap---send transaction")
         try {
-            await ethereum.request({
+            const response = await ethereum.request({
                 method: "eth_sendTransaction",
                 params: [{
                     ...swapData.tx,
@@ -203,7 +232,11 @@ const SwapInterface = () => {
                     ...chain.gasPrice.getGasParameters(chain.swapSettings.gas[chain.id])
                 }]
             })
-        } catch(error) {
+            if (response?.status) {
+                toast.success("Your amount has been swapped successfully")
+            }
+        } catch (error) {
+            toast.error(error)
             console.error(error)
         }
         swapPending.current = false
@@ -253,7 +286,7 @@ const SwapInterface = () => {
         }
 
         // Update state reference
-        
+
         tokenIn.current = swap.tokenIn.address
         amountIn.current = swap.tokenInAmount
         tokenOut.current = swap.tokenOut.address

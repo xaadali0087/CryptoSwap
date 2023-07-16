@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
     <>
         <NavBar />
         <div className="content">
-            {/* {children} */}
+            {children}
         </div>
         <Footer />
         <style jsx>{`

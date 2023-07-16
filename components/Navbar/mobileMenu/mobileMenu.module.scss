@@ -1,5 +1,46 @@
-.wrapper {
-  @apply w-screen min-h-[150vh] fixed overflow-auto flex flex-col items-center  top-0 p-10  right-0;
+.wrapperLight {
+  @apply w-screen min-h-screen z-[1] bg-[#16191E] fixed overflow-auto flex  flex-col items-center  top-0 p-10  right-0;
+  .closeRow {
+    @apply w-full flex justify-end;
+    .closeIcon {
+      @apply text-4xl cursor-pointer;
+      color: linear-gradient(to right, #ce6cf7, #5860cb) !important;
+    }
+  }
+  .linksContainer {
+    @apply w-full h-full flex flex-col items-center justify-center;
+    .links {
+      @apply w-full h-full flex flex-col justify-center items-center max-w-[500px] mb-56;
+      .inactive {
+        @apply w-full text-lg text-black capitalize text-center px-4 py-2 border-b-2 border-gray-500;
+      }
+      .carticon {
+        @apply flex justify-center;
+      }
+      .active {
+        @apply w-full text-lg text-[#173F35] uppercase text-center border-b-2 border-[#173F35] px-4 py-2;
+      }
+      .button {
+        @apply w-full flex items-center justify-center gap-3
+          p-3 mt-10 rounded-md;
+
+        span {
+          @apply text-lg;
+        }
+      }
+      .myaccountMenu {
+        position: absolute;
+        left: 0;
+        top: 46px;
+        left: -50px;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+.wrapperDark {
+  @apply w-screen min-h-screen z-[1] bg-[#FFFFFF] fixed overflow-auto flex  flex-col items-center  top-0 p-10  right-0;
   .closeRow {
     @apply w-full flex justify-end;
     .closeIcon {

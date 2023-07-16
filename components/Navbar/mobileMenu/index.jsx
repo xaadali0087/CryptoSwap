@@ -332,7 +332,7 @@ const MobileMenu = (props) => {
   }, [showMenu]);
   return (
     <>
-      <div className={styles.wrapper} style={{ backround: `${theme === "light" ? "#FFFFFF" : "#16191E"}` }}>
+      <div className={theme === "dark" ? styles.wrapperLight : styles.wrapperDark}>
         <div className={styles.closeRow} onClick={mobileMenuHandler}>
           <CgClose className={styles.closeIcon} />
         </div>

@@ -10,7 +10,7 @@ import Error from "next/error"
 import "../components/Navbar/navbar.css"
 import "../index.scss"
 import { useContext } from "react"
-
+import { Toaster } from "react-hot-toast";
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
@@ -67,6 +67,15 @@ const App = ({ Component, pageProps }) => {
                     <PriceContextProvider>
                         <WagmiConfig config={wagmiConfig}>
                             <Layout>
+                                <Toaster
+                                    position={"top-center"}
+                                    toastOptions={{
+                                        className: "react-hot-toast",
+                                        style: {
+                                            zIndex: 1300,
+                                        },
+                                    }}
+                                />
                                 <Component {...pageProps}></Component>
                             </Layout>
                         </WagmiConfig>
