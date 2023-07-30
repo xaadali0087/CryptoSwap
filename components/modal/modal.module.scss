@@ -1,0 +1,29 @@
+.modal {
+  @apply w-screen h-full box-border min-h-screen fixed top-0 left-0 z-[20] flex justify-center items-center opacity-0; 
+  font-family: "Poppins";
+  animation: showModal 0.4s ease forwards;
+  background: rgba(0, 0, 0, 0.40);
+  backdrop-filter: blur(3px);
+  .outer {
+    @apply  relative w-[324px] box-border max-w-[324px] rounded-[10px] bg-[#FAFAFA] min-h-[270px]  xl:w-[480px] xl:max-w-[480px] xl:min-h-[301px] xl:rounded-[4px] flex justify-center items-start;
+      .IconClose {
+        @apply text-[14px] font-bold box-border text-[#777777] cursor-pointer hover:text-red-600  right-[13.82px] top-[13px] xl:right-[23px] xl:top-[23px] absolute;
+    }
+  }
+  .ConnectOuter {
+    @apply overflow-hidden relative w-[320px] box-border max-w-[320px] rounded-[10px] bg-[#FAFAFA] min-h-[150px]  xl:w-[380px] xl:max-w-[380px] xl:min-h-[177px] xl:rounded-[4px] flex justify-center items-start;
+      .IconClose {
+        @apply text-[14px] font-bold box-border text-[#777777] cursor-pointer hover:text-red-500  right-[13.82px] top-[13px] xl:right-[23px] xl:top-[23px] absolute;
+    }
+  }
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

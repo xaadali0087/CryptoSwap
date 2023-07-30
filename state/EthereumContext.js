@@ -8,7 +8,6 @@ import useSwapSettings from "./useSwapSettings.js"
 import useGasPrice from "./useGasPrice.js"
 import { createContext, useState, useEffect } from "react"
 import Web3 from "web3"
-import { useAccount, useContract, useWalletClient } from 'wagmi'
 
 // Load Ethereum data
 
@@ -30,6 +29,7 @@ const EthereumContext = createContext({})
 
 const EthereumContextProvider = ({ children }) => {
     // Default Ethereum application state
+
 
 
     const swapSettings = useSwapSettings()

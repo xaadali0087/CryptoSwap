@@ -14,18 +14,47 @@ import { Toaster } from "react-hot-toast";
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet, polygon } from 'wagmi/chains'
+import { arbitrum, bsc, bscTestnet, mainnet, polygon, zkSync } from 'wagmi/chains'
 
-const chains = [arbitrum, mainnet, polygon]
+import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { publicProvider } from 'wagmi/providers/public'
+
+import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+
+const chains = [arbitrum, mainnet, polygon, bscTestnet, bsc, zkSync]
 const projectId = '9f1004e719cc812fc74d8c310d3fe8a2'
 
-const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
-const wagmiConfig = createConfig({
+const { publicClient, webSocketPublicClient } = configureChains(
+    chains,
+    [alchemyProvider({ apiKey: projectId }), publicProvider()],
+)
+const config = createConfig({
     autoConnect: true,
-    connectors: w3mConnectors({ projectId, version: 2, chains }),
+    connectors: [
+        new MetaMaskConnector({ chains }),
+        new CoinbaseWalletConnector({
+            chains,
+            options: {
+                appName: 'CoinBase Wallet',
+            },
+        }),
+        new WalletConnectConnector({
+            chains,
+            options: {
+                projectId: projectId,
+            },
+        }),
+
+    ],
+
+    publicClient,
+    webSocketPublicClient,
     publicClient
 })
-const ethereumClient = new EthereumClient(wagmiConfig, chains)
+const ethereumClient = new EthereumClient(config, chains)
 
 // Site metadata
 
@@ -65,7 +94,7 @@ const App = ({ Component, pageProps }) => {
             <WindowSizeContextProvider>
                 <EthereumContextProvider>
                     <PriceContextProvider>
-                        <WagmiConfig config={wagmiConfig}>
+                        <WagmiConfig config={config}>
                             <Layout>
                                 <Toaster
                                     position={"top-center"}

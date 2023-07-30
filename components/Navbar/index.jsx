@@ -6,10 +6,16 @@ import WindowSizeContext from '../../state/WindowSizeContext'
 import { Web3Button } from '@web3modal/react'
 import { FiMenu } from "react-icons/fi";
 import MobileMenu from './mobileMenu'
+import WalletConnection from '../WalletConnection'
+
+
 
 const NavBar = () => {
   const chainIds = Object.keys(chains)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const [isWalletOpen, setIsWalletOpen] = useState(false);
+
   // Navigation link component
 
   const NavLink = ({ name, href }) => (
@@ -330,17 +336,20 @@ const NavBar = () => {
           </a>
         </Link>
         <NavLink name="About" href="/about" />
-        <WalletManager />
-        {!isMobileMenuOpen && (
+        <div className="btn" onClick={() => setIsWalletOpen(true)}>Connect Wallet</div>
+        {isWalletOpen &&
+          <WalletConnection visible={isWalletOpen} onClose={() => setIsWalletOpen(false)} />
+        }
+        {/* {!isMobileMenuOpen && (
           <FiMenu onClick={mobileMenuHandler} className='mobileIcon' />
-        )}
+        )} */}
       </nav>
 
-      {isMobileMenuOpen && (
+      {/* {isMobileMenuOpen && (
         <MobileMenu
           mobileMenuHandler={mobileMenuHandler}
         />
-      )}
+      )} */}
     </>
   )
 }

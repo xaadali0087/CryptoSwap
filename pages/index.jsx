@@ -17,6 +17,7 @@ const Swap = () => {
 
     return (
         <>
+
             <div className="content">
                 {width > 700 ? (
                     <>
@@ -36,7 +37,7 @@ const Swap = () => {
                         <div className="divider"></div>
                     </>
                 )}
-               
+
             </div>
             <style jsx>{`
                 .content {
@@ -98,6 +99,7 @@ const Swap = () => {
                         margin-top: 0;
                     }
                 }
+     
             `}</style>
         </>
     )
